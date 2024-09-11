@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: dashboard
-        image: sysnet4admin/dashboard
+        image: wja300/dashboard
         imagePullPolicy: Always
         volumeMounts:
         - name: config-volume
