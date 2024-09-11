@@ -1,9 +1,8 @@
-FROM alpine:latest
+FROM nginx:stable
 
-RUN apk add --no-cache bash curl
-RUN curl -s "https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh" | bash
-RUN mv kustomize /usr/local/bin/kustomize
+LABEL Name=echo-ip Version=0.0.5
+COPY nginx.conf /etc/nginx/nginx.conf
+COPY cert.crt /etc/nginx/conf.d/cert.crt
+COPY cert.key /etc/nginx/conf.d/cert.key
 
-RUN kustomize version
-
-ENTRYPOINT ["/bin/bash"]
+CMD ["nginx", "-g", "daemon off;"]

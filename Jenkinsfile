@@ -53,7 +53,7 @@ pipeline {
             echo "deploy new deployment"
             kustomize edit add label deploy:$tag -f
             kustomize edit set namesuffix -- -$tag
-            kustomize edit set image sysnet4admin/dashboard:$tag
+            kustomize edit set image wja300/dashboard:$tag
             kustomize build . | kubectl apply -f -
             echo "retrieve new deployment"
             kubectl get deployments -o wide
