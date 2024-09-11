@@ -11,7 +11,7 @@ pipeline {
       spec:
         containers:
         - name: kustomize
-          image: sysnet4admin/kustomize:5.4.1
+          image: sysnet4admin/kustomize:3.6.1
           tty: true
           volumeMounts:
           - mountPath: /bin/kubectl
