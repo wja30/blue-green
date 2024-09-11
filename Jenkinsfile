@@ -11,7 +11,7 @@ pipeline {
       spec:
         containers:
         - name: kustomize
-          image: sysnet4admin/kustomize:3.6.1
+          image: sysnet4admin/kustomize: 5.4.1
           tty: true
           volumeMounts:
           - mountPath: /bin/kubectl
@@ -29,7 +29,7 @@ pipeline {
   stages {
     stage('git scm update'){
       steps {
-        git url: 'https://github.com/IaC-Source/blue-green.git', branch: 'main'
+        git url: 'https://github.com/wja30/blue-green.git', branch: 'master'
       }
     }
     stage('define tag'){
